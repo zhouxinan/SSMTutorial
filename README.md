@@ -14,5 +14,21 @@ Why do we use Maven? We, too often, find it tedious to manually add all kinds of
 <img src="./img/CreateMavenProject_2.png" width = "50%" />
 2. Select `webapp`  
 <img src="./img/CreateMavenProject_3.png" width = "50%" />
-3. Fill in Group Id and Artifact Id, such as `com.zhouxinan` and `SSMTutorial`  
+3. Fill in Group Id and Artifact Id, such as `com.zhouxinan` and `SSMTutorial`, and click Finish.  
 <img src="./img/CreateMavenProject_4.png" width = "50%" />
+
+Now you can see that there are some errors with the newly created project. Let's fix them.  
+<img src="./img/ProjectErrors.png" width = "50%" />
+
+1. Right-click `SSMTutorial` Project -> Properties -> Java Build Path -> JRE System Library -> Edit -> Workspace default JRE  
+<img src="./img/FixError_1.png" width = "50%" />
+<img src="./img/FixError_2.png" width = "50%" />
+
+2. Open `pom.xml` under the project directory, and add the following code inside `<dependencies>`, and save the file.
+```
+<dependency>  
+    <groupId>javax</groupId>  
+    <artifactId>javaee-api</artifactId>  
+    <version>7.0</version>  
+</dependency>
+```
