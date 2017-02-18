@@ -41,7 +41,7 @@ To add a dependency to your project using Maven, you need to search it on [Maven
 
 I have prepared a list of dependencies you will need in this tutorial. Just copy and paste them to your `pom.xml`.
 
-First, add a `properties` tag to your `pom.xml`, under the `<url>` tag. We store dependencies' version numbers there.
++ Add a `properties` tag to your `pom.xml`, under the `<url>` tag. We store dependencies' version numbers there.
 ```
 <properties>
     <org.springframework.version>4.3.6.RELEASE</org.springframework.version>
@@ -51,8 +51,7 @@ First, add a `properties` tag to your `pom.xml`, under the `<url>` tag. We store
     <slf4j.version>1.7.23</slf4j.version>
 </properties>
 ```
-
-Next, add the following dependencies:
++ Add the following dependencies:
 ```
 <!--
     Core utilities used by other modules.
@@ -264,4 +263,23 @@ Next, add the following dependencies:
             <artifactId>commons-fileupload</artifactId>
             <version>1.3.1</version>
         </dependency>
+```
+
++ Add the following code under the `<build>` -> `<finalName>` tag:
+
+```
+        <plugins>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysqlconnector.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
 ```
